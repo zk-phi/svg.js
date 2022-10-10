@@ -47,7 +47,7 @@ export function toParent (parent, i) {
 
 export function toParentNoTransform (parent, i) {
   if (this === parent) return this
-  this.addTo(parent, i).untransform()
+  this.addTo(parent, i)
   return this
 }
 
