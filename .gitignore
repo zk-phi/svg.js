@@ -7,4 +7,3 @@ node_modules/
 coverage/
 spec/es5TestBundle.js
 .env
-dist
