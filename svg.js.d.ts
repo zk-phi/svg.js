@@ -1075,6 +1075,7 @@ declare module "@svgdotjs/svg.js" {
         clip(): ClipPath;
         ellipse(width?: number, height?: number): Ellipse;
         flatten(parent: Dom, depth?: number): this;
+        flattenNoTransform(parent: Dom, depth?: number): this;
         foreignObject(width: number, height: number) : ForeignObject
         gradient(type: string, block?: (stop: Gradient) => void): Gradient;
         group(): G;
@@ -1098,6 +1099,7 @@ declare module "@svgdotjs/svg.js" {
         text(block: (tspan: Tspan) => void): Text;
         text(text: string): Text;
         ungroup(parent: Dom, depth?: number): this;
+        ungroupNoTransform(parent: Dom, depth?: number): this;
         use(element: Element | string, file?: string): Use;
         viewbox(): Box;
         viewbox(viewbox: ViewBoxLike | string): this;
@@ -1298,6 +1300,7 @@ declare module "@svgdotjs/svg.js" {
         timeline(tl: Timeline): this
         toggleClass(name: string): this;
         toParent(parent: Dom): this;
+        toParentNoTransform(parent: Dom): this;
         toSvg(): this;
         touchcancel(cb: Function | null): this;
         touchend(cb: Function | null): this;

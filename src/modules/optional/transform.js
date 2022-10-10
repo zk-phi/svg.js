@@ -45,6 +45,12 @@ export function toParent (parent, i) {
   return this
 }
 
+export function toParentNoTransform (parent, i) {
+  if (this === parent) return this
+  this.addTo(parent, i).untransform()
+  return this
+}
+
 // same as above with parent equals root-svg
 export function toRoot (i) {
   return this.toParent(this.root(), i)
@@ -70,5 +76,5 @@ export function transform (o, relative) {
 }
 
 registerMethods('Element', {
-  untransform, matrixify, toParent, toRoot, transform
+  untransform, matrixify, toParent, toParentNoTransform, toRoot, transform
 })

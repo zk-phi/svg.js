@@ -12,6 +12,16 @@ export default class Container extends Element {
     return this
   }
 
+  flattenNoTransform (parent = this, index) {
+    this.each(function () {
+      if (this instanceof Container) {
+        return this.flattenNoTransform().ungroupNoTransform()
+      }
+    })
+
+    return this
+  }
+
   ungroup (parent = this.parent(), index = parent.index(this)) {
     // when parent != this, we want append all elements to the end
     index = index === -1 ? parent.children().length : index
@@ -19,6 +29,18 @@ export default class Container extends Element {
     this.each(function (i, children) {
       // reverse each
       return children[children.length - i - 1].toParent(parent, index)
+    })
+
+    return this.remove()
+  }
+
+  ungroupNoTransform (parent = this.parent(), index = parent.index(this)) {
+    // when parent != this, we want append all elements to the end
+    index = index === -1 ? parent.children().length : index
+
+    this.each(function (i, children) {
+      // reverse each
+      return children[children.length - i - 1].toParentNoTransform(parent, index)
     })
 
     return this.remove()
