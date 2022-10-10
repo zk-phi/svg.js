@@ -6,7 +6,7 @@
 * @copyright Wout Fierens <wout@mick-wout.com>
 * @license MIT
 *
-* BUILT: Tue Oct 11 2022 00:44:39 GMT+0900 (Japan Standard Time)
+* BUILT: Tue Oct 11 2022 00:55:32 GMT+0900 (Japan Standard Time)
 */;
 const methods$1 = {};
 const names = [];
@@ -3033,7 +3033,7 @@ function toParent(parent, i) {
 }
 function toParentNoTransform(parent, i) {
   if (this === parent) return this;
-  this.addTo(parent, i).untransform();
+  this.addTo(parent, i);
   return this;
 } // same as above with parent equals root-svg
 
